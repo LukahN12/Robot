@@ -1,6 +1,6 @@
 # Tarea: Robot
 ## Profesor: José Ramón Jiménez Reyes
-## Alumno:
+## Alumno: Lucas Melero Garcia
 
 La tarea va a consistir en modelar el movimiento de un robot por una zona de nuestra habitación.
 
@@ -30,7 +30,7 @@ Además, a la hora de crear nuestro robot, podremos hacerlo de las siguientes fo
 Para mover nuestro robot por la zona designada, utilizaremos un controlador del mismo al que le iremos introduciendo comandos tales como:
 - 'A' o 'a' que avanzará un paso nuestro robot dependiendo de su orientación. Por ejemplo, en la imagen anterior avanzaría a la corrdenada (5, 6). Nunca podremos salirnos de los límites de la zona.
 - 'D' o 'd' que girará a la derecha nuestro robot (las orientaciones de nuestro robot son los puntos cardinales). Por ejemplo, en la imagen anterior, la orientación resultante sería **noreste**.
-- 'I' o 'i' que girará a la iquierda nuestro robot. Por ejemplo, en la imagen anterior, la orientación resultante sería **noroeste**.
+- 'I' o 'i' que girará a la izquierda nuestro robot. Por ejemplo, en la imagen anterior, la orientación resultante sería **noroeste**.
 
 El programa deberá permitir crear un controlador con los posibles robots y a los que podremos ir introduciendo comandos y nos irá mostrando el estado del robot después de la ejecución de cada uno de ellos.
 

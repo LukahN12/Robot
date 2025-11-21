@@ -12,7 +12,7 @@ public enum Orientacion {
 
     private final String nombre;
 
-    private Orientacion (String nombre) {
+    Orientacion (String nombre) {
         this.nombre = nombre;
     }
 

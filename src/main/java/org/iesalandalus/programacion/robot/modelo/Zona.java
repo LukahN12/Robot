@@ -1,10 +1,12 @@
 package org.iesalandalus.programacion.robot.modelo;
 
+import java.util.Objects;
+
 public record Zona(int ancho, int alto) {
-    private final static int ANCHO_MAXIMO = 100;
-    private final static int ANCHO_MINIMO = 10;
-    private final static int ALTO_MAXIMO = 100;
-    private final static int ALTO_MINIMO = 10;
+    private static final int ALTO_MINIMO = 10;
+    private static final int ALTO_MAXIMO = 100;
+    private static final int ANCHO_MINIMO = 10;
+    private static final int ANCHO_MAXIMO = 100;
 
     public Zona {
         validarAncho(ancho);
@@ -12,28 +14,36 @@ public record Zona(int ancho, int alto) {
     }
 
     public Zona() {
-        this.(ancho,alto);
+        this(ANCHO_MINIMO,ALTO_MINIMO);
     }
 
     public void validarAncho(int ancho){
-        if (ancho < ANCHO_MINIMO) {
-            throw new IllegalArgumentException("El valor de ancho es menor que el mínimo permitido");
-        } else if (ancho > ANCHO_MAXIMO) {
-            throw new IllegalArgumentException("El valor de ancho es mayor que el maximo permitido");
+        if (ancho < ANCHO_MINIMO || ancho > ANCHO_MAXIMO) {
+            throw new IllegalArgumentException("Ancho no válido.");
         }
     }
 
     public void validarAlto(int alto){
-        if (alto < ALTO_MINIMO) {
-            throw new IllegalArgumentException("El valor de alto es menor que el mínimo permitido");
-        } else if (alto > ALTO_MAXIMO) {
-            throw new IllegalArgumentException("El valor de alto es mayor que el maximo permitido");
+        if (alto < ALTO_MINIMO || alto > ALTO_MAXIMO) {
+            throw new IllegalArgumentException("Alto no válido.");
         }
     }
 
     public Coordenada getCentro() {
-        System.out.println("El centro se encuentra en" + ancho/2 + " y " + alto/2);
+        return new Coordenada(ancho/2, alto/2);
     }
 
-    public
+    public boolean pertenece(Coordenada coordenada) {
+        Objects.requireNonNull(coordenada, "La coordenada no puede ser nula.");
+        return (perteneceX(coordenada.x()) && perteneceY(coordenada.y()));
+    }
+
+    public boolean perteneceX(int x){
+        return (x < ancho && x >= 0);
+
+    }
+
+    public boolean perteneceY(int y){
+        return (y < alto && y >= 0);
+    }
 }
